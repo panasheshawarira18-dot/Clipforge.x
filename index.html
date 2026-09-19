@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClipForge — Turn long videos into clips</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header><div class="logo">✂ <span>ClipForge</span></div><div class="pill">Long video → short clips</div></header>
+<main>
+<section class="hero">
+  <div class="eyebrow">CREATE SHORT-FORM CONTENT</div>
+  <h1>Turn long videos into <span>clips.</span></h1>
+  <p>Paste a YouTube URL or upload a video, choose your clip length, and generate ready-to-download clips.</p>
+</section>
+
+<section class="card">
+  <div class="tabs">
+    <button class="tab active" data-tab="youtube">YouTube URL</button>
+    <button class="tab" data-tab="upload">Upload video</button>
+  </div>
+  <div id="youtubePanel">
+    <label>YouTube video URL</label>
+    <div class="urlrow"><input id="url" placeholder="https://www.youtube.com/watch?v=..." /><button id="load">Load video</button></div>
+    <small>Only use videos you have permission to download and edit.</small>
+  </div>
+  <div id="uploadPanel" class="hidden">
+    <label>Choose a video file</label>
+    <input id="file" type="file" accept="video/*">
+  </div>
+
+  <div id="settings" class="settings hidden">
+    <div><label>Clip length</label><select id="length"><option>15</option><option selected>30</option><option>45</option><option>60</option><option>90</option></select></div>
+    <div><label>Number of clips</label><input id="count" type="number" min="1" max="50" value="5"></div>
+    <div><label>Start time (seconds)</label><input id="start" type="number" min="0" value="0"></div>
+    <div class="check"><label><input id="vertical" type="checkbox"> 9:16 vertical</label></div>
+    <button id="generate">Generate clips</button>
+  </div>
+  <div id="status" class="status"></div>
+</section>
+
+<section id="results" class="results hidden">
+  <h2>Your clips</h2><div id="clipGrid"></div>
+</section>
+</main>
+<footer>ClipForge • Built with Node.js + FFmpeg</footer>
+<script src="/app.js"></script>
+</body></html>
